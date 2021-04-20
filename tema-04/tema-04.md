@@ -2,7 +2,7 @@
 
 ### **Para que serve:**
 
-**VPC:** A Virtual Private Cloud da Amazon (VPC Amazon) permite que o usuário inicie recursos em uma rede virtual definida pelo mesmo, que se assemelha a um rede tradicional encontrada em um data center, com os mesmos benefícios de utilizar a infraestrutura dimensionável da AWS. 
+**VPC:** A Virtual Private Cloud da Amazon (VPC Amazon) permite que o usuário inicie recursos em uma rede virtual definida pelo mesmo, essa rede virtual se assemelha a um rede tradicional encontrada em um data center, com os mesmos benefícios de utilizar a infraestrutura dimensionável da AWS. 
 
 **Roles:** Role é como uma identidade que possui políticas de permissões que determinam o que pode ser feito ou não. Ao contrário de ser associada a somente uma pessoa, com senhas ou chaves de acesso, pode ser assumida por qualquer usuário que necessite realizar determinada tarefa, atribuindo diferentes permissões. 
 
