@@ -1,1 +1,1 @@
-#Trilha DevOps e Cloud Basics: Python - Tema 06
+# Trilha DevOps e Cloud Basics: Python - Tema 06
