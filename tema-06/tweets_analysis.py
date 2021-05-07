@@ -35,14 +35,14 @@ def select_tweets(top10_actors):
                         twkey = actor
                         tweets_dict[key].append(twkey)
                     else:
-                        twkey = tweet._json
+                        twkey = tweet._json[key]
                         tweets_dict[key].append(twkey)
                 except KeyError:
                     twkey = ""
                     if tweets_dict[key] is None:
                         tweets_dict[key] = [twkey]
                     else:
-                        tweets_dict[key].append[twkey]
+                        tweets_dict[key].append(twkey)
                 except:
                     tweets_dict[key] = [twkey]
 
