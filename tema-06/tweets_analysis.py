@@ -48,5 +48,5 @@ def select_tweets(top10_actors):
 
     tweets_dataframe = pd.DataFrame.from_dict(tweets_dict)
 
-    tweets_dataframe.to_csv("tweetsTop10Actors.csv", index=False)
+    tweets_dataframe.to_csv("tweets/tweetsTop10Actors.csv", index=False)
 
