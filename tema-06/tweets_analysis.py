@@ -1,5 +1,6 @@
 import pandas as pd
 import tweepy as tw
+import os .path
 
 
 def authentication():
@@ -47,6 +48,9 @@ def select_tweets(top10_actors):
                     tweets_dict[key] = [twkey]
 
     tweets_dataframe = pd.DataFrame.from_dict(tweets_dict)
+
+    if not os.path.isdir("tweets/"):
+        os.mkdir("tweets/")
 
     tweets_dataframe.to_csv("tweets/tweetsTop10Actors.csv", index=False)
 
