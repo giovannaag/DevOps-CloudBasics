@@ -1,5 +1,5 @@
 # Trilha DevOps e Cloud Basics: Linux and Bash - Tema 07
-O objetivo do tema é rodar o código do tema 06 de forma agendada e sincronizar os arquivos de saída com o bucket S3 da AWS. Para tanto, foi criado um script Bash para automatizar a execução do código, e em seguida foi utilizado o crontab para agendar a execução do código. 
+O objetivo do tema é rodar o código do tema 06 de forma agendada e sincronizar os arquivos de saída com o bucket S3 da AWS. Para tanto, foi criado um script Bash para automatizar a execução do código, e em seguida foi utilizado o crontab para que o código rode de maneira agendada.
 
 ## O que é o Bash?
 Bash é o shell mais utilizado do Linux. E shell, que nesse caso estamos falando do Bash, é um interpretador de comandos. É a comunicação entre o usuário ou as aplicações desenvolvidas com o núcleo do sistema operacional, conhecido como kernel, essa comunicação se dá atráves do terminal de comandos. Ele permite o agendamento de tarefas dentro do sistema.
