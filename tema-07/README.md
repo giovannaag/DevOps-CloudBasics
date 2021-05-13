@@ -7,7 +7,7 @@ Bash é o shell mais utilizado do Linux. E shell, que nesse caso estamos falando
 ## Para que serve um script?
 Script em resumo é um conjunto de instruções que são interpretadas e executam determinada tarefa. Portanto, de modo simples, um script serve para automatizar a execucação de tarefas. 
 
-## Como criar um script Bash?
+# Criando um script Bash
 Iremos fazer um exemplo teste para criar um script Bash. É preciso utilizar qualquer editor de texto que deseja, iremos utilizar o vim que pode ser executado diretamente no terminal. Abaixo segue os passos necessários.
 
   **1.**  Abra o terminal e digite o seguinte comando: 
@@ -50,3 +50,35 @@ Se tudo estiver certo, a saída no terminal deverá ser:
 ~~~
 teste
 ~~~
+
+## O que é o crontab?
+Crontab é um arquivo que determina quando um script deve ser executado pelo Cron. E o Cron é um programa que executa essas tarefas agendadas pelo crontab.
+
+# Agendando uma tarefa no crontab
+Em seguida, iremos ver como agendamos a execução do script_tema07 via crontab. Esse script possui os comandos para rodar o código do tema 06 e eu quero que ele seja executado todos os dias, às 16h. Para isso, é necessário seguir os seguintes passos:
+
+**1.** Para criar a tarefa desejada no crontab é preciso acessá-la, primeiro. Para tanto, digite o seguinte comando no terminal:
+~~~~
+crontab -e
+~~~~
+
+**2.** Após isso, aparecerá opções de editores de texto para você utilizar. Por já ter utilizado o vim no script, irei utilizá-lo novamente. Assim, que selecionar a opção, clique na tecla **i** para digitar os comandos necessários.
+
+**3.** Agora, é necessário digitar a tarefa que deseja executar. A sintaxe que esse comando dese possuir é a seguinte:
+~~~~
+minutos(0-59) horas(0-23) dia(1-31) mês(1-12) dia da semana(0-6) comando
+~~~~
+
+Como queremos que a tarefa seja executada todo dia às 16h, então é necessário digitar:
+~~~~
+00 16 * * * bash ~/Desktop/DevOps-CloudBasics/tena-07/script_tema07.sh
+~~~~
+
+O * significa que será executado todos os dias, todo mês e em todos os dias da semana.
+
+**5.** Após ter digitado a tarefa, clique em **Esc** para sair do modo de inserção e digite o comando **:wq** para salvar e sair do editor.
+
+**6.** Para verificar a tarefa criada no crontab basta digitar o seguinte comando no terminal:
+~~~~
+crontab -l
+~~~~
