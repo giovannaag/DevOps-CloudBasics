@@ -71,7 +71,7 @@ minutos(0-59) horas(0-23) dia(1-31) mês(1-12) dia da semana(0-6) comando
 
 Como queremos que a tarefa seja executada todo dia às 16h, então é necessário digitar:
 ~~~~
-00 16 * * * bash ~/Desktop/DevOps-CloudBasics/tena-07/script_tema07.sh
+00 16 * * * bash ~/Desktop/DevOps-CloudBasics/tema-07/script_tema07.sh
 ~~~~
 
 O * significa que será executado todos os dias, todo mês e em todos os dias da semana.
