@@ -55,7 +55,7 @@ teste
 Crontab é um arquivo que determina quando um script deve ser executado pelo Cron. E o Cron é um programa que executa essas tarefas agendadas pelo crontab.
 
 # Agendando uma tarefa no crontab
-Em seguida, iremos ver como agendamos a execução do script_tema07 via crontab. Esse script possui os comandos para rodar o código do tema 06 e eu quero que ele seja executado todos os dias, às 16h. Para isso, é necessário seguir os seguintes passos:
+Em seguida, iremos ver como agendamos a execução do script_tema07 via crontab. Esse script possui os comandos para rodar o código do tema 06 e eu quero que ele seja executado todos os dias, às 10:45. Para isso, é necessário seguir os seguintes passos:
 
 **1.** Para criar a tarefa desejada no crontab é preciso acessá-la, primeiro. Para tanto, digite o seguinte comando no terminal:
 ~~~~
@@ -71,7 +71,7 @@ minutos(0-59) horas(0-23) dia(1-31) mês(1-12) dia da semana(0-6) comando
 
 Como queremos que a tarefa seja executada todo dia às 16h, então é necessário digitar:
 ~~~~
-00 16 * * * bash ~/Desktop/DevOps-CloudBasics/tena-07/script_tema07.sh
+45 10 * * * bash ~/Desktop/DevOps-CloudBasics/tema-07/script_tema07.sh
 ~~~~
 
 O * significa que será executado todos os dias, todo mês e em todos os dias da semana.
