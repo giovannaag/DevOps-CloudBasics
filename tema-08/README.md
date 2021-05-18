@@ -71,6 +71,26 @@ git --version
 ~~~
 
 ## Criando um script Powershell
+Iremos fazer um exemplo teste para criar um script Powershell. É preciso utilizar qualquer editor de texto que deseja, iremos utilizar o VSCode com a extensão do Powershell instalada. Abaixo segue os passos necessários.
 
+**1.** Abra o VSCode e selecione a pasta que deseja salvar o script. Após isso, criei um novo arquivo com o nome script_teste.ps1.
+
+**2.** Com o arquivo salvo, o VSCode entenderá que a linguagem utilizada será o powershell e todos os comandos estarão disponíveis. O script terá somente uma mensagem "teste", para isso digite o seguinte comando no arquivo:
+
+~~~
+Write-Host "teste"
+~~~
+
+**3.** Agora salve o arquivo e abra o Windows Powershell. Entre na pasta que o script foi salvo e digite o seguinte comando para executá-lo:
+
+~~~
+.\script_teste.ps1
+~~~
+
+**4.** Se tudo estiver certo, a saída no terminal deverá ser:
+
+~~~
+teste
+~~~
 
 ## Agendando uma tarefa no Windows
