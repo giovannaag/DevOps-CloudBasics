@@ -46,6 +46,13 @@ ls -l nomedoarquivo.sh
 ~~~
 ./nomedoarquivo.sh
 ~~~
+
+Ou também, podemos digitar:
+
+~~~
+bash nomedoarquivo.sh
+~~~
+
 Se tudo estiver certo, a saída no terminal deverá ser:
 ~~~
 teste
@@ -55,7 +62,7 @@ teste
 Crontab é um arquivo que determina quando um script deve ser executado pelo Cron. E o Cron é um programa que executa essas tarefas agendadas pelo crontab.
 
 # Agendando uma tarefa no crontab
-Em seguida, iremos ver como agendamos a execução do script_tema07 via crontab. Esse script possui os comandos para rodar o código do tema 06 e eu quero que ele seja executado todos os dias, às 10:45. Para isso, é necessário seguir os seguintes passos:
+Em seguida, iremos ver como agendamos a execução do script_tema07 via crontab. Esse script possui os comandos para rodar o código do tema 06 e eu quero que ele seja executado todos os dias, às 14:00. Para isso, é necessário seguir os seguintes passos:
 
 **1.** Para criar a tarefa desejada no crontab é preciso acessá-la, primeiro. Para tanto, digite o seguinte comando no terminal:
 ~~~~
@@ -64,14 +71,23 @@ crontab -e
 
 **2.** Após isso, aparecerá opções de editores de texto para você utilizar. Por já ter utilizado o vim no script, irei utilizá-lo novamente. Assim, que selecionar a opção, clique na tecla **i** para digitar os comandos necessários.
 
-**3.** Agora, é necessário digitar a tarefa que deseja executar. A sintaxe que esse comando dese possuir é a seguinte:
+**3.** Antes de digitar a tarefa, é necessário configurar o PATH e o SHELL. Isso porquê, o crontab não utiliza o shell para executar e também utiliza um path diferente, portanto setamos o PATH do usuário e o SHELL como o bash. Abaixo estão os comandos necessários para essa configuração. 
+
+~~~
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+~~~
+
+OBS: O PATH pode ser configurado de maneira personalizada, logo você pode utilizar o caminho que deseja. Assim, como o shell.
+
+**4.** Agora, é necessário digitar a tarefa que deseja executar. A sintaxe que esse comando deve possuir é a seguinte:
 ~~~~
 minutos(0-59) horas(0-23) dia(1-31) mês(1-12) dia da semana(0-6) comando
 ~~~~
 
-Como queremos que a tarefa seja executada todo dia às 16h, então é necessário digitar:
+Como queremos que a tarefa seja executada todo dia às 14h, então é necessário digitar:
 ~~~~
-45 10 * * * bash ~/Desktop/DevOps-CloudBasics/tema-07/script_tema07.sh
+00 14 * * * bash ~/Desktop/DevOps-CloudBasics/tema-07/script_tema07.sh
 ~~~~
 
 O * significa que será executado todos os dias, todo mês e em todos os dias da semana.
