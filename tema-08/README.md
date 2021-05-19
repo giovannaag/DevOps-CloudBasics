@@ -1,5 +1,5 @@
 # Trilha DevOps e Cloud Basics: Windows and Powershell - Tema 08
-O objetivo do tema é rodar o código do tema 06 de forma agendada e sincronizar os arquivos de saída com o bucket S3 da AWS. Contudo, esse processo deve ser feito em uma VM Windows. Para cumprir o objetivo, foi criado um script powershell para automatizar a execução do código e o agendador de tarefas do Windows para realizar o agendamento.
+O objetivo do tema é rodar o código do tema 06 de forma agendada e sincronizar os arquivos de saída com o bucket S3 da AWS. Contudo, esse processo deve ser feito em uma VM Windows. Para cumprir o objetivo, após a instalação da VM Windows utilizando o VirtualBox, foi criado um script powershell para automatizar a execução do código e o agendador de tarefas do Windows para realizar o agendamento.
 
 ## Preparação da máquina instalada
 Após a instalação da máquina, foi necessário realizar as seguintes instalações:
@@ -55,7 +55,7 @@ pip install tweepy
 ### Instalando AWS CLI e configurando 
 Para que seja possível fazer o sync do arquivo de saída com o s3 da aws, é preciso acesso à AWS. Ao instalar o AWS cli temos acesso a todos os serviços e dessa maneira, será possível realizar a tarefa desejada. Para instalar é preciso seguir os passos da documentação oficial, encontrado neste [link](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/install-cliv2-windows.html).
 
-Após a instalação é necessário fazer a configuração, para tanto digite o seguinte comando:
+Após a instalação é necessário fazer a configuração com as chaves de acesso, para tanto digite o seguinte comando:
 ~~~
 aws configure
 ~~~
@@ -94,3 +94,13 @@ teste
 ~~~
 
 ## Agendando uma tarefa no Windows
+Para agendar a execucção do script iremos utilizar o agendador de tarefas do windows. Para tanto, siga os passos abaixo.
+  1. Entre no agendador de tarefas do Windows (pode ser tanto pelo pesquisa no menu ou apertando win+R e inserindo "taskchd.msc")
+  2. Clique em Ação e em Criar Tarefa Básica no menu superior
+  3. Insira o nome e descrição da tarefa, em seguida clique em Avançar
+  4. Escolha quando você deseja executar
+  5. Escolha Iniciar um Programa na sessão Ação
+  6. Em Programa/Script, insira o caminho do Powershell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+  7. Em Adicione argumentos, insira o caminho do script: C:\Users\Giovanna\Desktop\devops-cloudbasics\tema-08\script_tema08.ps1
+  8. Faça a revisão e clique em concluir.
+  
