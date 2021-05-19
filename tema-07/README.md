@@ -80,7 +80,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 OBS: O PATH pode ser configurado de maneira personalizada, logo você pode utilizar o caminho que deseja. Assim, como o shell.
 
-**4.** Agora, é necessário digitar a tarefa que deseja executar. A sintaxe que esse comando dese possuir é a seguinte:
+**4.** Agora, é necessário digitar a tarefa que deseja executar. A sintaxe que esse comando deve possuir é a seguinte:
 ~~~~
 minutos(0-59) horas(0-23) dia(1-31) mês(1-12) dia da semana(0-6) comando
 ~~~~
