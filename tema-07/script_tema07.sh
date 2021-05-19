@@ -50,6 +50,6 @@ echo $'\n-- Rodando o tema 06 --'
 cd ../
 python3 main.py
 
-echo $'\n-- Fazendo o upload dos tweets para o bucket'
+echo $'\n-- Fazendo o upload dos tweets para o bucket --'
+aws s3 sync tweets/ s3://jt-dataeng-giovannagadelha/tema07/tweets/ 
 
-aws s3 sync tweets/ s3://jt-dataeng-giovannagadelha/tema07/tweets/
