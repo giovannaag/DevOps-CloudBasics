@@ -5,7 +5,7 @@ last10years = datetime.datetime.now().year - 10
 
 
 def select_movies():
-    movies_dataframe = pd.read_csv('datasets/title.basics/data.tsv', sep='\t',
+    movies_dataframe = pd.read_csv('../datasets/title.basics/data.tsv', sep='\t',
                                    usecols=['tconst', 'titleType', 'startYear'], dtype='unicode')
 
     movies_dataframe['startYear'] = pd.to_numeric(movies_dataframe['startYear'], errors='coerce')
@@ -17,7 +17,7 @@ def select_movies():
 
 
 def select_cast(movies_dataframe):
-    cast_dataframe = pd.read_csv('datasets/title.principals/data.tsv', sep='\t',
+    cast_dataframe = pd.read_csv('../datasets/title.principals/data.tsv', sep='\t',
                                  usecols=['tconst', 'nconst', 'category'], dtype='unicode')
 
     cast_dataframe = cast_dataframe[(cast_dataframe['category'] == 'actress') |
@@ -32,7 +32,7 @@ def top10_actors():
     movies_dataframe = select_movies()
     cast_dataframe = select_cast(movies_dataframe)
 
-    names_dataframe = pd.read_csv('datasets/name.basics/data.tsv', sep='\t',
+    names_dataframe = pd.read_csv('../datasets/name.basics/data.tsv', sep='\t',
                                   usecols=['nconst', 'primaryName'], dtype='unicode')
 
     top10_actors_dataframe = pd.DataFrame(cast_dataframe['nconst'].value_counts().index[0:10], columns=['nconst'])

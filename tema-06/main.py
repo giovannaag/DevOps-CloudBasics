@@ -1,5 +1,5 @@
-from movies_analysis import top10_actors
-from tweets_analysis import select_tweets
+from analysis.movies_analysis import top10_actors
+from analysis.tweets_analysis import select_tweets
 from datasets_verification import folders_creation, data_verification, data_download
 
 print("-- Creating datasets folders --")
