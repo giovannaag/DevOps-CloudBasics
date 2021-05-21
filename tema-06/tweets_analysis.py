@@ -4,7 +4,7 @@ import os .path
 
 
 def authentication():
-    with open('../twitter-tokens.txt', 'r') as tfile:
+    with open('twitter-tokens.txt', 'r') as tfile:
         consumer_key = tfile.readline().strip('\n')
         consumer_secret = tfile.readline().strip('\n')
         access_token = tfile.readline().strip('\n')
@@ -49,8 +49,8 @@ def select_tweets(top10_actors):
 
     tweets_dataframe = pd.DataFrame.from_dict(tweets_dict)
 
-    if not os.path.isdir("../tweets/"):
-        os.mkdir("../tweets/")
+    if not os.path.isdir("tweets/"):
+        os.mkdir("tweets/")
 
     tweets_dataframe.to_csv("tweets/tweetsTop10Actors.csv", index=False)
 

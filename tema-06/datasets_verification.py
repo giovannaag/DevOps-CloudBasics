@@ -48,3 +48,5 @@ def data_download():
         with open("datasets/title.principals/data.tsv", "wb") as output:
             shutil.copyfileobj(input, output)
     os.remove("datasets/title.principals/title.principals.tsv.gz")
+
+    return os.path.abspath("../")
