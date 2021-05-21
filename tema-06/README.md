@@ -28,7 +28,19 @@ Diretório: datasets/title.basics/data.tsv
 Diretório: datasets/name.basics/data.tsv
 
 ## Como é o funcionamento do código?
-O código está estruturado em três arquivos .py, são eles: movies_analysis.py, tweets_analysis.py e main.py. A seguir, será descrito a função de cada um.
+O código está estruturado em quatro arquivos .py, são eles: datasets_verification.py, movies_analysis.py, tweets_analysis.py e main.py. A seguir, será descrito a função de cada um.
+
+### - datasets_verification.py
+Este arquivo é responsável por gerenciar os datasets coletados do IMDB. Como a base de dados deles é atualizada diariamente, foram criadas funções para fazer o download cada vez que o código é executado, a fim de analisar os tweets de maneira consistente e atualizada. Além disso, ele automatiza a criação da estrutura de pastas dos datasets. O comportamente de cada função será explicado em seguida.
+
+#### folders_creation()
+Esta função automatiza a criação da estrutura de pastas dos datasets. Ela verifica se as pastas já existem, caso contrário ela cria de acordo com a estrutura que é utilizada no código.
+
+#### data_verification()
+Como os dados são atualizados diariamente, essa função é responsável por verificar se os arquivos data.tsv existem nas pastas, em caso positivo eles são removidos para que a próxima função faça o download dos datasets atualizados.
+
+#### data_download()
+Esta função faz o download dos datasets, para que os dados sempre se mantenham atualizados cada vez que o código roda, além disso ela extrai o arquivo, que é baixado em formato .gz e renomeia para data.tsv nas pastas dos respectivos datasets. Por fim, ela retorna para o diretório dos datasets.
 
 ### - movies_analysis.py
 Este arquivo é responsável pela análise dos datasets da IMDB, utilizando três funções que selecionam as informações necessárias para retornar uma lista com os 10 atores que mais fizeram filmes nos últimos 10 anos, para que, no arquivo tweets_analysis.py, seja recuperado os últimos 10 tweets correspondentes a cada ator da lista. O comportamento de cada função será explicado nos tópicos abaixo.
@@ -60,4 +72,4 @@ Posteriormente, é criado um novo laço for, ainda dentro do primeiro laço, par
 Por fim, após percorrer toda a lista de atores e atrizes, convertemos o dicionário de tweets em um dataframe chamado de tweets_dataframe que é convertido num arquivo.csv, armazenado no diretório tweets e nomeado de tweetsTop10Actors.csv. 
 
 ### - main.py
-Este arquivo é responsável por executar as funções criadas, em um mesmo local. Consiste na importação da função top10_actors() do arquivo movies_analysis.py, atribuindo o retorno dessa função na variável actorsList. E também, importa a função select_tweets() do arquivo tweets_analysis.py, passando como parâmetro a variável actorsList, o que irá gerar o arquivo.csv contendo os últimos 10 tweets dos 10 atores que mais fizeram filmes nos últimos 10 anos.  
+Este arquivo é responsável por executar as funções criadas, em um mesmo local. Consiste na importação das funções responsáveis pela verificação dos datasets, e também na importação da top10_actors() do arquivo movies_analysis.py, atribuindo o retorno dessa função na variável actorsList. Por fim, importa a função select_tweets() do arquivo tweets_analysis.py, passando como parâmetro a variável actorsList, o que irá gerar o arquivo.csv contendo os últimos 10 tweets dos 10 atores que mais fizeram filmes nos últimos 10 anos.  
