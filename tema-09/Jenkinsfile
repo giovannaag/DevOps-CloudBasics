@@ -1,0 +1,50 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Prepare enviroment') { 
+            steps {
+                sh '''
+
+                sudo yum install python3 -y
+                python3 -m pip install --user pandas
+                python3 -m pip install --user tweepy
+                python3 -m pip install --user wget
+
+                python3 datasets_verification.py
+
+                sudo mkdir -p -m777 /home/ec2-user/tema09
+
+                '''
+            }
+        }
+        stage('Test') { 
+            steps {
+                sh '''
+
+                python3 -m unittest output_file_test.py
+                
+                '''
+            }
+        }
+        stage('Build') {
+            steps {
+                sh '''
+
+                python3 output_file.py
+
+                '''
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                sh '''
+
+                sudo cp -r /var/lib/jenkins/workspace/tema09/* /home/ec2-user/tema09
+                sudo chmod -R 777 /home/ec2-user/tema09
+                sudo -S su - ec2-user -c "aws s3 sync /home/ec2-user/tema09/output/ s3://jt-dataeng-giovannagadelha/tema09/output/"
+                
+                '''
+            }
+        }
+    }
+}

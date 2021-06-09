@@ -1,0 +1,72 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Prepare to build'){
+            steps{
+                sh'''
+                sudo apt-get install docker -y
+                sudo service docker start
+                '''
+                
+                sh'''
+                sudo chmod 777 /var/run/docker.sock
+                '''
+
+                sh'''
+                    if [ "$(systemctl is-active docker)" = "active" ]
+                        then echo "Docker service is active"
+                    else
+                        echo "Starting docker service."
+                        sudo systemctl start docker
+                    fi
+                '''
+            }
+        }
+        stage('Build') {
+            
+            steps {
+                sh '''
+                docker build -t imagem_tema10:1.0 -f Dockerfile .
+                '''
+                
+                sh'''
+                CONTAINER_NAME="tema10_container"
+                OLD="$(docker ps --all --quiet --filter=name="$CONTAINER_NAME")"
+                if [ -n "$OLD" ]; then
+                    docker stop $OLD && docker rm $OLD
+                fi
+                '''
+
+                sh'''
+                docker run --name tema10_container -t -d tema10:1.0 python
+                '''
+            }
+        }
+        stage('Prepare to test') {
+            steps{
+                sh '''
+                docker exec tema10_container python datasets_verification.py
+                '''
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh '''
+                docker exec tema10_container python -m unittest movies_analysis_test.py
+                '''
+            }
+        }
+        
+        stage('Run') {
+            steps {
+                sh '''
+                docker exec tema10_container python main.py
+                docker exec tema10_container aws s3 sync tweets/ s3://jt-dataeng-giovannagadelha/tema10/tweets/ 
+                '''
+            }
+        }
+        
+    }
+}
