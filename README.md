@@ -11,3 +11,4 @@ Repositório criado para realização dos temas da trilha de DevOps e Cloud Basi
 - **Tema 08:** Windows e Powershell
 - **Tema 09:** Jenkins
 - **Tema 10:** Docker
+- **Tema 11:** Stack ELK
