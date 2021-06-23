@@ -12,3 +12,4 @@ Repositório criado para realização dos temas da trilha de DevOps e Cloud Basi
 - **Tema 09:** Jenkins
 - **Tema 10:** Docker
 - **Tema 11:** Stack ELK
+- **Tema 12:** Infrastructure as code - Terraform
